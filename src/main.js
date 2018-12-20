@@ -1,8 +1,16 @@
 import Vue from 'vue'
+import router from './router'
+import store from './store'
 import App from './App.vue'
+import global from '@/assets/js/global'
+import '@/assets/sass/_app.scss'
+
+Vue.use(global)
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+    router,
+    store,
+  render: h => h(App)
 }).$mount('#app')
