@@ -3,7 +3,7 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 import global from '@/assets/js/global'
-import '@/assets/js/viewport'
+import '@/assets/js/rem-mobile'
 import '@/assets/sass/_app.scss'
 
 Vue.use(global)
