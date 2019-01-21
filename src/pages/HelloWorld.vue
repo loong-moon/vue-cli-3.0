@@ -35,7 +35,31 @@
         name: 'HelloWorld',
         props: {
             msg: String
-        }
+        },
+        created () {
+            this.$nextTick(() => {
+                this.getPerformance()
+            })
+        },
+        methods: {
+            getPerformance () {
+                let timing = window.performance.timing
+                console.log(timing)
+                let timingObj = {}
+
+                timingObj['重定向时间'] = (timing.redirectEnd - timing.redirectStart) / 1000
+                timingObj['DNS解析时间'] = (timing.domainLookupEnd - timing.domainLookupStart) / 1000
+                timingObj['TCP完成握手时间'] = (timing.connectEnd - timing.connectStart) / 1000
+                timingObj['HTTP请求响应完成时间'] = (timing.responseEnd - timing.requestStart) / 1000
+                timingObj['DOM开始加载前所花费时间'] = (timing.responseEnd - timing.navigationStart) / 1000
+                timingObj['DOM加载完成时间'] = (timing.domComplete - timing.domLoading) / 1000
+                timingObj['DOM结构解析完成时间'] = (timing.domInteractive - timing.domLoading) / 1000
+                timingObj['脚本加载时间'] = (timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart) / 1000
+                timingObj['onload事件时间'] = (timing.loadEventEnd - timing.loadEventStart) / 1000
+                timingObj['页面完全加载时间'] = (timingObj['重定向时间'] + timingObj['DNS解析时间'] + timingObj['TCP完成握手时间'] + timingObj['HTTP请求响应完成时间'] + timingObj['DOM结构解析完成时间'] + timingObj['DOM加载完成时间'])
+
+                console.log(timingObj)
+            }
     }
 </script>
 
