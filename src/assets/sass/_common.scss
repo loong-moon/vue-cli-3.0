@@ -9,7 +9,8 @@ body, ul, li, ol, p, span, i, input, img, textarea, button, iframe, h1, h2, h3, 
 }
 
 body {
-  font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  // "Hiragino Sans GB", "PingFangSC-Light"都是苹果字体
+  font-family: "Hiragino Sans GB", "PingFangSC-Light", "Microsoft YaHei", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4286;
   height: 100vh;
@@ -23,7 +24,7 @@ article, aside, details, figcaption, figure, footer, header, menu, nav, section,
   padding: 0;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
  }
-input, textarea, keygen, select, button{ font-family: aileron, 'Microsoft YaHei', "arial", "sans-serif";}
+input, textarea, keygen, select, button{ font-family: "Hiragino Sans GB", "PingFangSC-Light", "Microsoft YaHei", Arial, sans-serif;}
 textarea{ resize: none;}
 i, address {  font-style: normal; }
 ol, ul { list-style: none; }
