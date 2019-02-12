@@ -44,7 +44,17 @@
         methods: {
             getPerformance () {
                 let timing = window.performance.timing
-                console.log(timing)
+                // console.log(timing)
+
+                let completeTime = timing.domComplete - timing.domLoading
+                if (completeTime < 0) {
+                    setTimeout(() => {
+                        this.getPerformance()
+                    }, 200)
+
+                    return
+                }
+
                 let timingObj = {}
 
                 timingObj['重定向时间'] = (timing.redirectEnd - timing.redirectStart) / 1000
@@ -60,6 +70,7 @@
 
                 console.log(timingObj)
             }
+        }
     }
 </script>
 

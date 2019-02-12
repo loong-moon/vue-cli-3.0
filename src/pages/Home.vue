@@ -7,6 +7,8 @@
 <script>
     export default {
         name: 'home',
-        components: {}
+        components: {},
+        created () {},
+        methods: {}
     }
 </script>

@@ -233,7 +233,7 @@ export const getExtend = url => {
 }
 
 // 用星号加密证件
-export const plusStar = function (str, frontLen, endLen) {
+export const plusStar = (str, frontLen, endLen) => {
     if (!str) {
         return str
     }
@@ -245,4 +245,25 @@ export const plusStar = function (str, frontLen, endLen) {
     }
     starStr = str.substr(0, frontLen) + starStr + str.substr(str.length - endLen)
     return starStr
+}
+
+// 随机从数组中抽出一个值
+export const getOne = arr => {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
+
+// 格式化金钱
+export const formatMoney = function (number) {
+    if (!number) {
+        return number
+    }
+
+    try {
+        // 解析一个字符串并返回浮点数
+        // 把数字转换为字符串，结果的小数点后有指定位数的数字
+        // 正则：全局匹配一个位置，这个位置是非单词边界，然后后面是3的倍数个数字，然后是非数字
+        return parseFloat(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    } catch (error) {
+        return null
+    }
 }
