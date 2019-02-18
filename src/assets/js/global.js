@@ -2,8 +2,8 @@ import axios from './axios'
 
 // 全局过滤器
 import { formatDateTime, plusStar } from './utils'
+import components from '@/components'
 
-const components = {}
 
 const filters = {
     formatDateTime, // 格式化时间
