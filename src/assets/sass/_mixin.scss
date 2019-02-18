@@ -5,21 +5,19 @@
 $red: #f56c6c;
 $orange: #e6a23c;
 $green: #67c23a;
-$blue: #409eff;
+$blue: #20a0ff;
+$black: #2c3e50; //用于背景的黑色
 
 $primary: $blue; //主色
 $success: $green; //成功
 $warning: $orange; //警告
 $error: $red; //错误
-$info: #57c5f7; //信息
-$title: #1c2438; //标题
-$content: #495060; //内容
+$content: #333333; //内容
 $subColor: #999; //辅助、图标
 $disabled: #bbbec4; //失效
 $border: #dddee1; //边框
 $divider: #e9eaec; //分割线
 $background: #f8f8f8; //背景
-$linkColor: #409eff; //链接
 
 /*层级*/
 $z-layers: (
