@@ -1,5 +1,5 @@
 /**
- * 系统管理-其他功能mock数据
+ * 账户接口
  */
 
 // const Mock = require('mockjs')
