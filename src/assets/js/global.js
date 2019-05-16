@@ -1,14 +1,8 @@
 import axios from './axios'
 
 // 全局过滤器
-import { formatDateTime, plusStar } from './utils'
+import filters from './filters'
 import components from '@/components'
-
-
-const filters = {
-    formatDateTime, // 格式化时间
-    plusStar, // 加密证件
-}
 
 
 export default {
@@ -25,6 +19,7 @@ export default {
 
 
         Vue.prototype.$http = axios
+        Vue.prototype.$filters = filters
         Vue.config.productionTip = false
     }
 }

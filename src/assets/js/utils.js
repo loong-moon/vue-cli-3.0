@@ -144,14 +144,19 @@ export const secondToString = second => {
 }
 
 // 格式化日期
-export const formatDateTime = (date, fmt) => {
+export const formatDate = (date, fmt) => {
         if (!date) {
         return date
     } else {
-        let time = /^[0-9]+.?[0-9]*/.test(date) ? new Date(parseFloat(date)) : new Date(date)
+
         if (!fmt) {
             fmt = 'YYYY-MM-DD hh:mm:ss'
         }
+
+        const isString = typeof date === 'string'
+        const isFloatNUmber = /^[0-9]+.?[0-9]*/.test(date)
+        const isHasSeparator = /[-:/]/.test(date)
+        let time = isString && isFloatNUmber && !isHasSeparator ? new Date(parseFloat(date)) : new Date(date)
 
         let o = {
             'M+': time.getMonth() + 1, // 月份
@@ -169,6 +174,16 @@ export const formatDateTime = (date, fmt) => {
             }
         }
         return fmt
+    }
+}
+
+// 格式化金钱
+export const formatMoney = function (number) {
+    if (!number) return 0
+    try {
+        return parseFloat(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    } catch (error) {
+        return '-'
     }
 }
 
