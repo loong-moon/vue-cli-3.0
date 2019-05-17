@@ -3,6 +3,7 @@ import axios from './axios'
 // 全局过滤器
 import filters from './filters'
 import components from '@/components'
+import api from '@/api'
 
 
 export default {
@@ -20,6 +21,7 @@ export default {
 
         Vue.prototype.$http = axios
         Vue.prototype.$filters = filters
+        Vue.prototype.$api = api
         Vue.config.productionTip = false
     }
 }

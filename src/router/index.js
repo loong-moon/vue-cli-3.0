@@ -11,7 +11,7 @@ export default new Router({
         ...demo,
         {
             path: '/',
-            redirect: '/hello-world'
+            redirect: '/list'
         }
     ]
 })

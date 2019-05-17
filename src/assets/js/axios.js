@@ -1,11 +1,14 @@
 import axios from 'axios'
-// import returnCode from './enums/return-code'
+import { createSign } from './utils'
+
 
 axios.defaults.timeout = 30000
 // axios.defaults.withCredentials = true;
-// axios.defaults.headers.common['Login-Token'] = localStorage.getItem('Login-Token')
-axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.baseURL = '/v1'
+axios.defaults.headers.common['X-LC-Id'] = 'gpUYlmosJCiTaqFwC2STRzMn-9Nh9j0Va'
+axios.defaults.headers.common['X-LC-Sign'] = createSign('HWL95hKzCoXL9TRIT1LFrxIz')
+// axios.defaults.headers.common['X-LC-Key'] = 'HWL95hKzCoXL9TRIT1LFrxIz'
+axios.defaults.headers.common['Content-Type'] = 'application/json'
+axios.defaults.baseURL = '/1.1'
 // 添加一个响应拦截器
 axios.interceptors.response.use(
     function (res) {

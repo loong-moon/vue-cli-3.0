@@ -1,5 +1,5 @@
 // 工具库
-// import md5 from 'blueimp-md5'
+import md5 from 'blueimp-md5'
 
 // 添加cookie
 export const addCookie = (name, value, expiresHours) => {
@@ -260,4 +260,11 @@ export const plusStar = function (str, frontLen, endLen) {
     }
     starStr = str.substr(0, frontLen) + starStr + str.substr(str.length - endLen)
     return starStr
+}
+
+// 生成leancloud X-LC-Sign
+export const createSign = key => {
+    let timestamp = Date.now()
+    let sign = md5(timestamp + key) + ',' + timestamp
+    return sign
 }

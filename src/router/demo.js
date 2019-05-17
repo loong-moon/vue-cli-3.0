@@ -1,7 +1,7 @@
 // demo页面
 const About = () => import(/* webpackChunkName: "demo" */ '@/pages/About.vue')
 const Home = () => import(/* webpackChunkName: "demo" */ '@/pages/Home.vue')
-const HelloWorld = () => import(/* webpackChunkName: "demo" */ '@/pages/HelloWorld.vue')
+const List = () => import(/* webpackChunkName: "demo" */ '@/pages/List.vue')
 
 
 const route = [
@@ -16,9 +16,9 @@ const route = [
         component: Home
     },
     {
-        path: '/hello-world',
-        name: 'helloWorld',
-        component: HelloWorld
+        path: '/list',
+        name: 'List',
+        component: List
     }
 ]
 export default route

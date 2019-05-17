@@ -1,8 +1,9 @@
+const path = require('path')
 module.exports = {
     productionSourceMap: false,
 
     devServer: {
-        // proxy: 'http://0.0.0.0:8888'
+        proxy: 'https://gpUYlmos.api.lncld.net'
     },
 
     css: {
@@ -31,5 +32,9 @@ module.exports = {
                     )
                 })
         }
+
+        // 为axios引用设置别名
+        config.resolve.alias
+            .set('@axios', path.resolve(__dirname, './src/assets/js/axios'))
     }
 }
