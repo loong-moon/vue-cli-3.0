@@ -8,14 +8,15 @@
     var scale = 0
     var tid
     var flexible = lib.flexible || (lib.flexible = {})
-
+    
     if (metaEl) {
-        console.warn('将根据已有的meta标签来设置缩放比例')
-        var match = metaEl.getAttribute('content').match(/initial-scale=([\d.]+)/)
-        if (match) {
-            scale = parseFloat(match[1])
-            dpr = parseInt(1 / scale)
-        }
+        // 如果根据已有的viewport标签设置设备像素比，就不能在模板页中写viewport标签了，所以在这里注释掉
+        // console.warn('将根据已有的meta标签来设置缩放比例')
+        // var match = metaEl.getAttribute('content').match(/initial-scale=([\d.]+)/)
+        // if (match) {
+        //     scale = parseFloat(match[1])
+        //     dpr = parseInt(1 / scale)
+        // }
     } else if (flexibleEl) {
         var content = flexibleEl.getAttribute('content')
         if (content) {
@@ -31,7 +32,7 @@
             }
         }
     }
-
+    
     if (!dpr && !scale) {
         // var isAndroid = win.navigator.appVersion.match(/android/gi)
         var isIPhone = win.navigator.appVersion.match(/iphone/gi)
@@ -50,6 +51,7 @@
             dpr = 1
         }
         scale = 1 / dpr
+
     }
 
     docEl.setAttribute('data-dpr', dpr)

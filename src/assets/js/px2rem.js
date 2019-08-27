@@ -27,11 +27,12 @@ module.exports = postcss.plugin('postcss-px-to-rem', function (options) {
 
     return function (root) {
         root.walkDecls(function (decl, i) {
-            // This should be the fastest test and will remove most declarations
+            // 快速测试一些不用处理的css属性
+            // 不包含px的
             if (decl.value.indexOf('px') === -1) return
-
+            // 设置中忽略的属性
             if (blacklisted(opts.propBlackList, decl.prop)) return
-
+            // 设置中忽略的选择器
             if (blacklisted(opts.selectorBlackList, decl.parent.selector)) return
 
             decl.value = decl.value.replace(pxRegex, pxReplace)
