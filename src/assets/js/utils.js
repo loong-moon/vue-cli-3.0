@@ -32,13 +32,13 @@ export const deleteCookie = name => {
 }
 
 // 事件绑定方法
-export const bindEvent = (element, type, func) => {
+export const bindEvent = (element, type, handler) => {
     if (element.addEventListener) {
-        element.addEventListener(type, func, false)
+        element.addEventListener(type, handler, false)
     } else if (element.attachEvent) {
-        element.attachEvent('on' + type, func)
+        element.attachEvent('on' + type, handler)
     } else {
-        element['on' + type] = func
+        element['on' + type] = handler
     }
 }
 

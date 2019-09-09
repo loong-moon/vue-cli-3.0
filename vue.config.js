@@ -31,5 +31,8 @@ module.exports = {
                     )
                 })
         }
+
+        // 添加别名
+        config.resolve.alias.set('@axios', '@/assets/js/axios')
     }
 }

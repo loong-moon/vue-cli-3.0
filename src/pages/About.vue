@@ -2,7 +2,10 @@
   <div class="about">
     <h1>This is an about page</h1>
 
-    <div class="test"></div>
+    <div class="test" v-report="{
+        type: 'view',
+        time: '2019-09-05'
+    }"></div>
   </div>
 </template>
 
