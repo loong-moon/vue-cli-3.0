@@ -53,25 +53,22 @@ export const removeEvent = (element, type, handler) => {
     }
 }
 
-// 深复制，要想达到深复制就需要用递归
-export const deepCopy = (o, co) => {
-    let c = co || {}
-    for (let i in o) {
-        if (typeof o[i] === 'object') {
-            // 要考虑深复制问题了
-            if (o[i].constructor === Array) {
-                // 这是数组
-                c[i] = []
-            } else {
-                // 这是对象
-                c[i] = {}
-            }
-            deepCopy(o[i], c[i])
+/**
+ * 登录系统
+ * @param {object} o<必须>  // 被拷贝的对象
+ * @returns {object} c // 拷贝后返回的对象
+ **/
+export const deepCopy = (obj) => {
+    if (typeof obj !== 'object' || obj === null) return obj
+    let clone = Array.isArray(obj) ? [] : {}
+    for (let i in obj) {
+        if (typeof obj[i] === 'object') {
+            deepCopy(obj[i])
         } else {
-            c[i] = o[i]
+            clone[i] = obj[i]
         }
     }
-    return c
+    return clone
 }
 
 // 转换字节尺寸
