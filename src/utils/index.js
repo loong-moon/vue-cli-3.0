@@ -5,54 +5,54 @@
 
 // 添加cookie
 export const addCookie = (name, value, expiresHours) => {
-    let cookieString = name + '=' + escape(value) + '; path=/'
-    // 判断是否设置过期时间
-    if (expiresHours > 0) {
-        const date = new Date()
-        date.setTime(date.getTime + expiresHours * 3600 * 1000)
-        cookieString = cookieString + '; expires=' + date.toUTCString()
-    }
-    document.cookie = cookieString
+  let cookieString = name + '=' + escape(value) + '; path=/'
+  // 判断是否设置过期时间
+  if (expiresHours > 0) {
+    const date = new Date()
+    date.setTime(date.getTime + expiresHours * 3600 * 1000)
+    cookieString = cookieString + '; expires=' + date.toUTCString()
+  }
+  document.cookie = cookieString
 }
 
 // 获取cookie
 export const getCookie = name => {
-    const strCookie = document.cookie
-    const arrCookie = strCookie.split(';')
-    for (let i = 0; i < arrCookie.length; i++) {
-        const arr = arrCookie[i].split('=')
-        if (arr[0] === name) return unescape(arr[1])
-    }
-    return ''
+  const strCookie = document.cookie
+  const arrCookie = strCookie.split(';')
+  for (let i = 0; i < arrCookie.length; i++) {
+    const arr = arrCookie[i].split('=')
+    if (arr[0] === name) return unescape(arr[1])
+  }
+  return ''
 }
 
 // 删除cookie
 export const deleteCookie = name => {
-    const date = new Date()
-    date.setTime(date.getTime() - 10000)
-    document.cookie = name + '=; path=/; expires=' + date.toUTCString()
+  const date = new Date()
+  date.setTime(date.getTime() - 10000)
+  document.cookie = name + '=; path=/; expires=' + date.toUTCString()
 }
 
 // 事件绑定方法
 export const bindEvent = (element, type, func) => {
-    if (element.addEventListener) {
-        element.addEventListener(type, func, false)
-    } else if (element.attachEvent) {
-        element.attachEvent('on' + type, func)
-    } else {
-        element['on' + type] = func
-    }
+  if (element.addEventListener) {
+    element.addEventListener(type, func, false)
+  } else if (element.attachEvent) {
+    element.attachEvent('on' + type, func)
+  } else {
+    element['on' + type] = func
+  }
 }
 
 // 移除事件绑定
 export const removeEvent = (element, type, handler) => {
-    if (element.removeEventListener) {
-        element.removeEventListener(type, handler, false)
-    } else if (element.detachEvent) {
-        element.detachEvent('on' + type, handler)
-    } else {
-        element['on' + type] = null
-    }
+  if (element.removeEventListener) {
+    element.removeEventListener(type, handler, false)
+  } else if (element.detachEvent) {
+    element.detachEvent('on' + type, handler)
+  } else {
+    element['on' + type] = null
+  }
 }
 
 /**
@@ -61,36 +61,36 @@ export const removeEvent = (element, type, handler) => {
  * @returns {object} c // 拷贝后返回的对象
  **/
 export const deepCopy = (obj) => {
-    if (typeof obj !== 'object' || obj === null) return obj
-    const clone = Array.isArray(obj) ? [] : {}
-    for (const i in obj) {
-        if (typeof obj[i] === 'object') {
-            deepCopy(obj[i])
-        } else {
-            clone[i] = obj[i]
-        }
+  if (typeof obj !== 'object' || obj === null) return obj
+  const clone = Array.isArray(obj) ? [] : {}
+  for (const i in obj) {
+    if (typeof obj[i] === 'object') {
+      deepCopy(obj[i])
+    } else {
+      clone[i] = obj[i]
     }
-    return clone
+  }
+  return clone
 }
 
 // 转换字节尺寸
 export const bytesToSize = (bytes, num) => {
-    if (bytes === 0) return '0 B'
-    if (!num) {
-        num = 2
-    }
-    const k = 1024
-    const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return (bytes / Math.pow(k, i)).toFixed(num) + ' ' + sizes[i]
+  if (bytes === 0) return '0 B'
+  if (!num) {
+    num = 2
+  }
+  const k = 1024
+  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  return (bytes / Math.pow(k, i)).toFixed(num) + ' ' + sizes[i]
 }
 
 // 格式化字符串时间
 export const formatStringTime = str => {
-    let time
-    if (!str) return
-    if (str.length === 14) {
-        time =
+  let time
+  if (!str) return
+  if (str.length === 14) {
+    time =
             str.slice(0, 4) +
             '/' +
             str.slice(4, 6) +
@@ -102,103 +102,103 @@ export const formatStringTime = str => {
             str.slice(10, 12) +
             ':' +
             str.slice(12, 14)
-    }
-    return time
+  }
+  return time
 }
 
 // 转换秒成为字符串
 export const secondToString = second => {
-    let sec = parseInt(second)
-    let min = '00'
-    let hour = '00'
+  let sec = parseInt(second)
+  let min = '00'
+  let hour = '00'
+  if (sec < 10) {
+    sec = '0' + sec
+  }
+  let time = hour + ':' + min + ':' + sec
+  if (sec >= 60) {
+    sec = sec % 60
+    min = parseInt(sec / 60)
     if (sec < 10) {
-        sec = '0' + sec
+      sec = '0' + sec
     }
-    let time = hour + ':' + min + ':' + sec
-    if (sec >= 60) {
-        sec = sec % 60
-        min = parseInt(sec / 60)
-        if (sec < 10) {
-            sec = '0' + sec
-        }
-        if (min < 10) {
-            min = '0' + min
-        }
-        time = hour + ':' + min + ':' + sec
-
-        if (min >= 60) {
-            min = min % 60
-            hour = parseInt(min / 60)
-            if (min < 10) {
-                min = '0' + min
-            }
-            if (hour < 10) {
-                hour = '0' + hour
-            }
-            time = hour + ':' + min + ':' + sec
-        }
+    if (min < 10) {
+      min = '0' + min
     }
+    time = hour + ':' + min + ':' + sec
 
-    return time
+    if (min >= 60) {
+      min = min % 60
+      hour = parseInt(min / 60)
+      if (min < 10) {
+        min = '0' + min
+      }
+      if (hour < 10) {
+        hour = '0' + hour
+      }
+      time = hour + ':' + min + ':' + sec
+    }
+  }
+
+  return time
 }
 
 
 // 计算字符串所占字节数
 export const sizeof = (str, charset) => {
-    let total = 0
-    let charCode
-    let i
-    let len
+  let total = 0
+  let charCode
+  let i
+  let len
 
-    charset = charset ? charset.toLowerCase() : ''
-    if (charset === 'utf-16' || charset === 'utf16') {
-        for (i = 0, len = str.length; i < len; i++) {
-            charCode = str.charCodeAt(i)
-            if (charCode <= 0xffff) {
-                total += 2
-            } else {
-                total += 4
-            }
-        }
-    } else {
-        for (i = 0, len = str.length; i < len; i++) {
-            charCode = str.charCodeAt(i)
-            if (charCode <= 0x007f) {
-                total += 1
-            } else if (charCode <= 0x07ff) {
-                total += 2
-            } else if (charCode <= 0xffff) {
-                total += 3
-            } else {
-                total += 4
-            }
-        }
+  charset = charset ? charset.toLowerCase() : ''
+  if (charset === 'utf-16' || charset === 'utf16') {
+    for (i = 0, len = str.length; i < len; i++) {
+      charCode = str.charCodeAt(i)
+      if (charCode <= 0xffff) {
+        total += 2
+      } else {
+        total += 4
+      }
     }
-    return total
+  } else {
+    for (i = 0, len = str.length; i < len; i++) {
+      charCode = str.charCodeAt(i)
+      if (charCode <= 0x007f) {
+        total += 1
+      } else if (charCode <= 0x07ff) {
+        total += 2
+      } else if (charCode <= 0xffff) {
+        total += 3
+      } else {
+        total += 4
+      }
+    }
+  }
+  return total
 }
 
 // 生成唯一标识
 export const guid = () => {
-    return (
-        Math.random()
-            .toString()
-        .substr(3, 4) + Date.now().toString(36)
-    )
+  return (
+    Math.random()
+      .toString()
+      .substr(3, 4) + Date.now().toString(36)
+  )
 }
 
 // 获取当前url的参数
 export const GetQuery = name => {
-    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-    const r = window.location.search.substr(1).match(reg) // 获取url中"?"符后的字符串并正则匹配
-    if (r != null) {
-        return encodeURIComponent(r[2])
-    }
-    return null
+  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+  const r = window.location.search.substr(1).match(reg) // 获取url中"?"符后的字符串并正则匹配
+  if (r != null) {
+    return encodeURIComponent(r[2])
+  }
+  return null
 }
 
 // 获取给定文件url扩展名
 export const getExtend = url => {
-    const index = url.lastIndexOf('.')
-    const extend = url.slice(index + 1) // 后缀名
-    return extend
+  const index = url.lastIndexOf('.')
+  const extend = url.slice(index + 1) // 后缀名
+  return extend
 }

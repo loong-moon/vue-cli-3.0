@@ -33,6 +33,10 @@
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.11.0",
     "sass-loader": "^8.0.2",
+    "stylelint": "^13.2.1",
+    "stylelint-config-recess-order": "^2.0.4",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.16.0",
     "vue-template-compiler": "^2.5.17"
   },
   "postcss": {

@@ -7,19 +7,15 @@ module.exports = {
     },
     "extends": [
         "plugin:vue/essential",
+        'standard',
         "@vue/standard"
     ],
     "rules": {
         "eol-last": 0, //关闭文件末尾强制换行
         "no-multiple-empty-lines": [1, {"max": 3}], //空行最多不能超过3行
-        'indent': 'off',
-        'vue/script-indent': [
-            1, 4,
-            {
-                'baseIndent': 1,
-                'switchCase': 1
-            }
-        ],
+        'indent': [1, 2],
+        'vue/script-indent': [1, 2], // vue中script部分的缩进
+        'vue/html-indent': [1, 2], // vue中html部分的缩进
         "import/first": 1, // import必须在文件顶端
         "spaced-comment": 1, // 注释符号后必须有空格
         "no-trailing-spaces": 0, // 关闭尾随空白限制

@@ -20,8 +20,8 @@ import axios from '@axios'
  }
  **/
 export const login = async (data, config) => {
-    const response = await axios.post(`/login`, data, config)
-    return response || {}
+  const response = await axios.post('/login', data, config)
+  return response || {}
 }
 
 
@@ -34,8 +34,8 @@ export const login = async (data, config) => {
  response.data null
  **/
 export const logout = async (config) => {
-    const response = await axios.post(`/logout`, null, config)
-    return response || {}
+  const response = await axios.post('/logout', null, config)
+  return response || {}
 }
 
 
@@ -47,8 +47,8 @@ export const logout = async (config) => {
  response.data<array>
  **/
 export const fetchMenu = async (config) => {
-    const response = await axios.get(`/basic/menu`, config)
-    return response || {}
+  const response = await axios.get('/basic/menu', config)
+  return response || {}
 }
 
 
@@ -62,8 +62,8 @@ export const fetchMenu = async (config) => {
  response.data<null>
  **/
 export const updatePassword = async (data, config) => {
-    const response = await axios.put(`/basic/pwd`, data, config)
-    return response || {}
+  const response = await axios.put('/basic/pwd', data, config)
+  return response || {}
 }
 
 

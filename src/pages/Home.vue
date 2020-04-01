@@ -5,8 +5,8 @@
 </template>
 
 <script>
-    export default {
-        name: 'home',
-        components: {}
-    }
+export default {
+  name: 'home',
+  components: {}
+}
 </script>

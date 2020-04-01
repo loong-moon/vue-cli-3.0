@@ -5,20 +5,20 @@ const HelloWorld = () => import(/* webpackChunkName: "demo" */ '@/pages/HelloWor
 
 
 const route = [
-    {
-        path: '/about',
-        name: 'about',
-        component: About,
-    },
-    {
-        path: '/home',
-        name: 'home',
-        component: Home
-    },
-    {
-        path: '/hello-world',
-        name: 'helloWorld',
-        component: HelloWorld
-    }
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/hello-world',
+    name: 'helloWorld',
+    component: HelloWorld
+  }
 ]
 export default route
