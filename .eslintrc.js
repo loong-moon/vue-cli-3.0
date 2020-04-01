@@ -1,11 +1,12 @@
 module.exports = {
     "root": true,
     "env": {
-        "node": true
+        browser: true, // 支持浏览器全局变量
+        es6: true, // 支持es6全局变量
+        node: true, // 支持node环境全局变量
     },
     "extends": [
         "plugin:vue/essential",
-        // "eslint:recommended",
         "@vue/standard"
     ],
     "rules": {

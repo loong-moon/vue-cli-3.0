@@ -1,4 +1,6 @@
-// 工具库
+/****
+ * 工具函数统一出口
+****/
 // import md5 from 'blueimp-md5'
 
 // 添加cookie
@@ -6,7 +8,7 @@ export const addCookie = (name, value, expiresHours) => {
     let cookieString = name + '=' + escape(value) + '; path=/'
     // 判断是否设置过期时间
     if (expiresHours > 0) {
-        let date = new Date()
+        const date = new Date()
         date.setTime(date.getTime + expiresHours * 3600 * 1000)
         cookieString = cookieString + '; expires=' + date.toUTCString()
     }
@@ -15,10 +17,10 @@ export const addCookie = (name, value, expiresHours) => {
 
 // 获取cookie
 export const getCookie = name => {
-    let strCookie = document.cookie
-    let arrCookie = strCookie.split(';')
+    const strCookie = document.cookie
+    const arrCookie = strCookie.split(';')
     for (let i = 0; i < arrCookie.length; i++) {
-        let arr = arrCookie[i].split('=')
+        const arr = arrCookie[i].split('=')
         if (arr[0] === name) return unescape(arr[1])
     }
     return ''
@@ -26,7 +28,7 @@ export const getCookie = name => {
 
 // 删除cookie
 export const deleteCookie = name => {
-    let date = new Date()
+    const date = new Date()
     date.setTime(date.getTime() - 10000)
     document.cookie = name + '=; path=/; expires=' + date.toUTCString()
 }
@@ -54,14 +56,14 @@ export const removeEvent = (element, type, handler) => {
 }
 
 /**
- * 登录系统
+ * 深拷贝
  * @param {object} o<必须>  // 被拷贝的对象
  * @returns {object} c // 拷贝后返回的对象
  **/
 export const deepCopy = (obj) => {
     if (typeof obj !== 'object' || obj === null) return obj
-    let clone = Array.isArray(obj) ? [] : {}
-    for (let i in obj) {
+    const clone = Array.isArray(obj) ? [] : {}
+    for (const i in obj) {
         if (typeof obj[i] === 'object') {
             deepCopy(obj[i])
         } else {
@@ -77,9 +79,9 @@ export const bytesToSize = (bytes, num) => {
     if (!num) {
         num = 2
     }
-    let k = 1024
-    let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    let i = Math.floor(Math.log(bytes) / Math.log(k))
+    const k = 1024
+    const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
     return (bytes / Math.pow(k, i)).toFixed(num) + ' ' + sizes[i]
 }
 
@@ -140,49 +142,6 @@ export const secondToString = second => {
     return time
 }
 
-// 格式化日期
-export const formatDate = (date, fmt) => {
-        if (!date) {
-        return date
-    } else {
-
-        if (!fmt) {
-            fmt = 'YYYY-MM-DD hh:mm:ss'
-        }
-
-        const isString = typeof date === 'string'
-        const isFloatNUmber = /^[0-9]+.?[0-9]*/.test(date)
-        const isHasSeparator = /[-:/]/.test(date)
-        let time = isString && isFloatNUmber && !isHasSeparator ? new Date(parseFloat(date)) : new Date(date)
-
-        let o = {
-            'M+': time.getMonth() + 1, // 月份
-            'D+': time.getDate(), // 日
-            'h+': time.getHours(), // 小时
-            'm+': time.getMinutes(), // 分
-            's+': time.getSeconds(), // 秒
-            'q+': Math.floor((time.getMonth() + 3) / 3), // 季度
-            S: time.getMilliseconds() // 毫秒
-        }
-        if (/(Y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (time.getFullYear() + '').substr(4 - RegExp.$1.length))
-        for (let k in o) {
-            if (new RegExp('(' + k + ')').test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length))
-            }
-        }
-        return fmt
-    }
-}
-
-// 格式化金钱
-export const formatMoney = function (number) {
-    if (!number) return 0
-    try {
-        return parseFloat(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    } catch (error) {
-        return '-'
-    }
-}
 
 // 计算字符串所占字节数
 export const sizeof = (str, charset) => {
@@ -229,8 +188,8 @@ export const guid = () => {
 
 // 获取当前url的参数
 export const GetQuery = name => {
-    let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
-    let r = window.location.search.substr(1).match(reg) // 获取url中"?"符后的字符串并正则匹配
+    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+    const r = window.location.search.substr(1).match(reg) // 获取url中"?"符后的字符串并正则匹配
     if (r != null) {
         return encodeURIComponent(r[2])
     }
@@ -239,22 +198,7 @@ export const GetQuery = name => {
 
 // 获取给定文件url扩展名
 export const getExtend = url => {
-    let index = url.lastIndexOf('.')
-    let extend = url.slice(index + 1) // 后缀名
+    const index = url.lastIndexOf('.')
+    const extend = url.slice(index + 1) // 后缀名
     return extend
-}
-
-// 用星号加密证件
-export const plusStar = function (str, frontLen, endLen) {
-    if (!str) {
-        return str
-    }
-
-    let len = str.length - frontLen - endLen
-    let starStr = ''
-    for (var i = 0; i < len; i++) {
-        starStr += '*'
-    }
-    starStr = str.substr(0, frontLen) + starStr + str.substr(str.length - endLen)
-    return starStr
 }

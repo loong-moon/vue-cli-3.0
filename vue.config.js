@@ -10,7 +10,7 @@ module.exports = {
             // 给 sass-loader 传递选项
             sass: {
                 // 向所有 Sass 样式传入共享的全局变量
-                data: `@import "@/assets/sass/_mixin.scss";`
+                prependData: '@import "@/assets/sass/mixin.scss";'
             }
         }
     },
@@ -31,5 +31,8 @@ module.exports = {
                     )
                 })
         }
+
+        // 添加别名
+        config.resolve.alias.set('@axios', '@/api/axios')
     }
 }

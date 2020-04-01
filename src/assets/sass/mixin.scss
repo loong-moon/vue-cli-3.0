@@ -94,7 +94,7 @@ $for-ie7: false;
   &:before, &:after {
     content: "";
     display: table;
-    font: 0/0 a;
+    font: 0/0 inherit;
   }
   &:after { clear: both; }
 }

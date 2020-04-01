@@ -3,7 +3,7 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 import global from '@/assets/js/global'
-import '@/assets/sass/_app.scss'
+import '@/assets/sass/app.scss'
 
 Vue.use(global)
 
