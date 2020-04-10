@@ -1,20 +1,4 @@
-# 基于vue-cli@3.x的脚手架
-vue + vue-router + vuex + axios + sass + eslint + stylelint + koa + mockjs
-
-## 包括的分支
-
-### master
-包含了koa mock数据服务，api分离，router，vuex，eslint，sass
-
-### mobile
-包含router，vuex，eslint，sass，包括px2rem，flexible，rem-mobile，viewport四种移动端适配方案
-
-### server-leancloud
-在master的基础上添加leancloud云后端服务，不依赖后端开发应用
-
-### server-mysql
-在master的基础上添加mysql数据库，全栈开发
-
+技术栈：react + react-router + redux + axios + antd + sass + eslint + stylelint + koa + mockjs
 
 ## 可用脚本
 

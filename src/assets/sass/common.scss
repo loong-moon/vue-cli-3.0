@@ -30,7 +30,10 @@ a {
   cursor: pointer;
   &:hover { color: $primary; }
 }
-input:focus, textarea:focus, button, select { outline: none; -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+input:focus, textarea:focus, button, select {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
 img { display: block; }
 
 /* 布局 */
@@ -42,7 +45,11 @@ img { display: block; }
 .hide { display: none !important; }
 .show { display: block !important; }
 .cover { @extend %cover; }
-.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .clamp { @include clamp; }
 .mc { margin: 0 auto; }
 .tac { text-align: center; }

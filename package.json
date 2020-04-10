@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "mock": "node ./server/app",
+    "lintstyle": "stylelint src/**/*.scss src/**/*.css",
+    "mock": "nodemon ./server/app",
     "report": "vue-cli-service build --report"
   },
   "dependencies": {
@@ -32,6 +34,8 @@
     "koa-router": "^8.0.8",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.11.0",
+    "nodemon": "^2.0.3",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^8.0.2",
     "stylelint": "^13.2.1",
     "stylelint-config-recess-order": "^2.0.4",
@@ -44,6 +48,10 @@
       "autoprefixer": {}
     }
   },
+  "pre-commit": [
+    "lint",
+    "lintstyle"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",
