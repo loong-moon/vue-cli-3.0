@@ -3,7 +3,12 @@
 ****/
 // import md5 from 'blueimp-md5'
 
-// 添加cookie
+/**
+ * 添加cookie
+ * @param {string} name<必须>  // cookie名
+ * @param {string} value<必须>  // cookie值
+ * @param {number} expiresHours<必须>  // 过期时间
+ **/
 export const addCookie = (name, value, expiresHours) => {
   let cookieString = name + '=' + escape(value) + '; path=/'
   // 判断是否设置过期时间
@@ -15,7 +20,10 @@ export const addCookie = (name, value, expiresHours) => {
   document.cookie = cookieString
 }
 
-// 获取cookie
+/**
+ * 获取cookie
+ * @param {string} name<必须>  // cookie名
+ **/
 export const getCookie = name => {
   const strCookie = document.cookie
   const arrCookie = strCookie.split(';')
@@ -26,14 +34,22 @@ export const getCookie = name => {
   return ''
 }
 
-// 删除cookie
+/**
+ * 删除cookie
+ * @param {string} name<必须>  // cookie名
+ **/
 export const deleteCookie = name => {
   const date = new Date()
   date.setTime(date.getTime() - 10000)
   document.cookie = name + '=; path=/; expires=' + date.toUTCString()
 }
 
-// 事件绑定方法
+/**
+ * 事件绑定方法
+ * @param {object} element<必须>  // dom对象
+ * @param {string} type<必须>  // 事件类型
+ * @param {function} handler<必须>  // 触发事件后的回调函数
+ **/
 export const bindEvent = (element, type, func) => {
   if (element.addEventListener) {
     element.addEventListener(type, func, false)
@@ -44,7 +60,12 @@ export const bindEvent = (element, type, func) => {
   }
 }
 
-// 移除事件绑定
+/**
+ * 移除事件绑定
+ * @param {object} element<必须>  // dom对象
+ * @param {string} type<必须>  // 事件类型
+ * @param {function} handler<必须>  // 触发事件后的回调函数
+ **/
 export const removeEvent = (element, type, handler) => {
   if (element.removeEventListener) {
     element.removeEventListener(type, handler, false)
@@ -57,7 +78,7 @@ export const removeEvent = (element, type, handler) => {
 
 /**
  * 深拷贝
- * @param {object} o<必须>  // 被拷贝的对象
+ * @param {object} obj<必须>  // 被拷贝的对象
  * @returns {object} c // 拷贝后返回的对象
  **/
 export const deepCopy = (obj) => {

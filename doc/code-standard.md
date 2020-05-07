@@ -7,7 +7,7 @@
 3. 代码内变量、属性、方法、ref用小驼峰，如xiaoTuoFeng
 4. 代码内组件名、id（只用于js）用大驼峰，如DaTuoFeng
 5. `actionType`用大写字母+下划线，如GET_INFO
-6. 路由命名固定部分使用与图片一致的命名方式，动态部分使用驼峰命名法，使用的单词应选择与产品模块业务紧密相连的，而不应使用脱离业务的单词；禁止连续动态参数的设置，如：`/book/:bookType/:id`（非法），`/book/type/:typeId/detail/:id`(正解)
+6. 路由命名固定部分使用pascal命名方式，动态部分使用驼峰命名法，使用的单词应选择与产品模块业务紧密相连的，而不应使用脱离业务的单词；禁止连续动态参数的设置，如：`/book/:bookType/:id`（非法），`/book/type/:typeId/detail/:id`(正解)
 
 ### `js/vue规范`
 
