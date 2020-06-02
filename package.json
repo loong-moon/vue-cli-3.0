@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "yarn serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lintstyle": "stylelint src/**/*.scss src/**/*.css",
     "mock": "nodemon ./server/app",
+    "static": "node ./server/static.js",
     "report": "vue-cli-service build --report"
   },
   "dependencies": {

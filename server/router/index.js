@@ -6,7 +6,7 @@ const router = require('koa-router')()
 
 const account = require('./account')
 
-router.use('/v1', account.routes(), account.allowedMethods())
+router.use('', account.routes(), account.allowedMethods())
 
 module.exports = router
 

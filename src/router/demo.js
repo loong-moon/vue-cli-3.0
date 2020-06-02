@@ -1,7 +1,7 @@
 // demo页面
-const About = () => import(/* webpackChunkName: "demo" */ '@/pages/About.vue')
-const Home = () => import(/* webpackChunkName: "demo" */ '@/pages/Home.vue')
-const HelloWorld = () => import(/* webpackChunkName: "demo" */ '@/pages/HelloWorld.vue')
+const About = () => import(/* webpackChunkName: "demo" */ '@/pages/about')
+const Home = () => import(/* webpackChunkName: "demo" */ '@/pages/home')
+const HelloWorld = () => import(/* webpackChunkName: "demo" */ '@/pages/hello-world')
 
 
 const route = [

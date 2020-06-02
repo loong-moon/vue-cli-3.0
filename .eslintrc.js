@@ -1,3 +1,7 @@
+/****
+ * eslint配置
+****/
+
 module.exports = {
   // 以当前目录为根目录，不再向上查找
   root: true,
@@ -6,6 +10,7 @@ module.exports = {
     browser: true, // 支持浏览器全局变量
     es6: true, // 支持es6全局变量
     node: true, // 支持node环境全局变量
+    jest: true, // 支持jest测试全局变量
   },
   // 使用的扩展库
   extends: [
@@ -37,5 +42,5 @@ module.exports = {
       exports: 'only-multiline',
       functions: 'never'
     }],
-  },
+  }
 }

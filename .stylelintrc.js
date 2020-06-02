@@ -1,6 +1,7 @@
 /****
  * stylelint配置
 ****/
+
 module.exports = {
   // 使用的扩展库
   extends: [
@@ -19,5 +20,7 @@ module.exports = {
     'at-rule-no-unknown': null, // 屏蔽原生未知规则检查
     'scss/at-rule-no-unknown': true, // 使用scss插件中未知规则检查
     'declaration-block-trailing-semicolon': null, // 代码块中最后一项声明的分号限制，在jsx语法style属性中和eslint冲突
+    'no-descending-specificity': null, // 优先级更高的允许写在前面
+    'font-family-no-missing-generic-family-keyword': null, // 允许font-family缺少泛型系列
   }
 }

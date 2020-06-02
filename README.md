@@ -1,20 +1,4 @@
-# 基于vue-cli@3.x的脚手架
-vue + vue-router + vuex + axios + sass + eslint + stylelint + koa + mockjs
-
-## 包括的分支
-
-### master
-包含了koa mock数据服务，api分离，router，vuex，eslint，sass
-
-### mobile
-包含router，vuex，eslint，sass，包括px2rem，flexible，rem-mobile，viewport四种移动端适配方案
-
-### server-leancloud
-在master的基础上添加leancloud云后端服务，不依赖后端开发应用
-
-### server-mysql
-在master的基础上添加mysql数据库，全栈开发
-
+技术栈：vue + vue-router + vuex + element-ui + axios + sass + echarts + iconfont + eslint + stylelint + koa + mockjs
 
 ## 可用脚本
 
@@ -51,6 +35,10 @@ vue + vue-router + vuex + axios + sass + eslint + stylelint + koa + mockjs
 
 把请求地址代理到`http://localhost:3100`即可返回已经配置好的数据。
 
+### `yarn static`
+
+开启一个静态服务，可以用于部署或模拟部署。
+
 ### `yarn report`
 
 在 `dist` 文件夹生成生产环境文件。
@@ -66,3 +54,10 @@ vue + vue-router + vuex + axios + sass + eslint + stylelint + koa + mockjs
 - [代码书写规范](./doc/code-standard.md)
 - [git协作规范](./doc/git-standard.md)
 - [接口规范](./doc/api-standard.md)
+
+
+
+## 目录介绍
+
+[代码书写规范](./doc/directory.md)
+
