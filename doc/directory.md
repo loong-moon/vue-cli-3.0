@@ -1,6 +1,6 @@
 ### 根目录
 
-![根目录](https://github.com/loong-moon/vue-cli-3.0/raw/master/doc/img/directory1.png)
+![根目录](https://raw.githubusercontent.com/loong-moon/vue-cli-3.0/master/doc/img/directory1.png)
 
 .vscode：vscode的配置，主要是配置了自动修复lint
 
