@@ -34,7 +34,7 @@ vue.config.js：vue配置，目前配置了反向代理，共享sass全局变量
 
 ### 代码目录
 
-![代码目录](https://github.com/loong-moon/vue-cli-3.0/raw/master/doc/img/directory2.png)
+![代码目录](https://github.com/loong-moon/vue-cli-3.0/blob/master/doc/img/directory2.png)
 
 server：包含接口模拟服务和静态服务
 
